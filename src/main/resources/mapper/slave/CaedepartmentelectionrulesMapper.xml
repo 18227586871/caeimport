@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaedepartmentelectionrulesMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caedepartmentelectionrules">
+    <id column="departmentElectionRulesId" jdbcType="VARCHAR" property="departmentelectionrulesid" />
+    <result column="nominatedNeedAcademicians" jdbcType="INTEGER" property="nominatedneedacademicians" />
+    <result column="nominatedNeedFacultyAcademicians" jdbcType="INTEGER" property="nominatedneedfacultyacademicians" />
+    <result column="maxAcademiciansNominated" jdbcType="INTEGER" property="maxacademiciansnominated" />
+    <result column="overageNominatedNeedAcademicians" jdbcType="INTEGER" property="overagenominatedneedacademicians" />
+    <result column="overageNominatedNeedFacultyAcademicians" jdbcType="INTEGER" property="overagenominatedneedfacultyacademicians" />
+    <result column="selectYear" jdbcType="VARCHAR" property="selectyear" />
+    <result column="createBy" jdbcType="VARCHAR" property="createby" />
+    <result column="updateBy" jdbcType="VARCHAR" property="updateby" />
+    <result column="createDt" jdbcType="TIMESTAMP" property="createdt" />
+    <result column="updateDt" jdbcType="TIMESTAMP" property="updatedt" />
+    <result column="orgId" jdbcType="VARCHAR" property="orgid" />
+    <result column="compId" jdbcType="VARCHAR" property="compid" />
+    <result column="departmentId" jdbcType="VARCHAR" property="departmentid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caedepartmentelectionrules
+    where departmentElectionRulesId = #{departmentelectionrulesid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caedepartmentelectionrules">
+    insert into caedepartmentelectionrules (departmentElectionRulesId, nominatedNeedAcademicians, 
+      nominatedNeedFacultyAcademicians, maxAcademiciansNominated, 
+      overageNominatedNeedAcademicians, overageNominatedNeedFacultyAcademicians, 
+      selectYear, createBy, updateBy, 
+      createDt, updateDt, orgId, 
+      compId, departmentId)
+    values (#{departmentelectionrulesid,jdbcType=VARCHAR}, #{nominatedneedacademicians,jdbcType=INTEGER}, 
+      #{nominatedneedfacultyacademicians,jdbcType=INTEGER}, #{maxacademiciansnominated,jdbcType=INTEGER}, 
+      #{overagenominatedneedacademicians,jdbcType=INTEGER}, #{overagenominatedneedfacultyacademicians,jdbcType=INTEGER}, 
+      #{selectyear,jdbcType=VARCHAR}, #{createby,jdbcType=VARCHAR}, #{updateby,jdbcType=VARCHAR}, 
+      #{createdt,jdbcType=TIMESTAMP}, #{updatedt,jdbcType=TIMESTAMP}, #{orgid,jdbcType=VARCHAR}, 
+      #{compid,jdbcType=VARCHAR}, #{departmentid,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caedepartmentelectionrules">
+    update caedepartmentelectionrules
+    set nominatedNeedAcademicians = #{nominatedneedacademicians,jdbcType=INTEGER},
+      nominatedNeedFacultyAcademicians = #{nominatedneedfacultyacademicians,jdbcType=INTEGER},
+      maxAcademiciansNominated = #{maxacademiciansnominated,jdbcType=INTEGER},
+      overageNominatedNeedAcademicians = #{overagenominatedneedacademicians,jdbcType=INTEGER},
+      overageNominatedNeedFacultyAcademicians = #{overagenominatedneedfacultyacademicians,jdbcType=INTEGER},
+      selectYear = #{selectyear,jdbcType=VARCHAR},
+      createBy = #{createby,jdbcType=VARCHAR},
+      updateBy = #{updateby,jdbcType=VARCHAR},
+      createDt = #{createdt,jdbcType=TIMESTAMP},
+      updateDt = #{updatedt,jdbcType=TIMESTAMP},
+      orgId = #{orgid,jdbcType=VARCHAR},
+      compId = #{compid,jdbcType=VARCHAR},
+      departmentId = #{departmentid,jdbcType=VARCHAR}
+    where departmentElectionRulesId = #{departmentelectionrulesid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select departmentElectionRulesId, nominatedNeedAcademicians, nominatedNeedFacultyAcademicians, 
+    maxAcademiciansNominated, overageNominatedNeedAcademicians, overageNominatedNeedFacultyAcademicians, 
+    selectYear, createBy, updateBy, createDt, updateDt, orgId, compId, departmentId
+    from caedepartmentelectionrules
+    where departmentElectionRulesId = #{departmentelectionrulesid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select departmentElectionRulesId, nominatedNeedAcademicians, nominatedNeedFacultyAcademicians, 
+    maxAcademiciansNominated, overageNominatedNeedAcademicians, overageNominatedNeedFacultyAcademicians, 
+    selectYear, createBy, updateBy, createDt, updateDt, orgId, compId, departmentId
+    from caedepartmentelectionrules
+  </select>
+</mapper>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaepatentMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caepatent">
+    <id column="patentId" jdbcType="VARCHAR" property="patentid" />
+    <result column="patentSn" jdbcType="INTEGER" property="patentsn" />
+    <result column="year" jdbcType="VARCHAR" property="year" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="patentNo" jdbcType="VARCHAR" property="patentno" />
+    <result column="patentType" jdbcType="VARCHAR" property="patenttype" />
+    <result column="inventor" jdbcType="VARCHAR" property="inventor" />
+    <result column="majorCollaborators" jdbcType="VARCHAR" property="majorcollaborators" />
+    <result column="academicianId" jdbcType="VARCHAR" property="academicianid" />
+    <result column="academicianUUID" jdbcType="VARCHAR" property="academicianuuid" />
+    <result column="rank" jdbcType="VARCHAR" property="rank" />
+    <result column="mainEffect" jdbcType="VARCHAR" property="maineffect" />
+    <result column="mainContribution" jdbcType="VARCHAR" property="maincontribution" />
+    <result column="createBy" jdbcType="VARCHAR" property="createby" />
+    <result column="updateBy" jdbcType="VARCHAR" property="updateby" />
+    <result column="createDt" jdbcType="TIMESTAMP" property="createdt" />
+    <result column="updateDt" jdbcType="TIMESTAMP" property="updatedt" />
+    <result column="orgId" jdbcType="VARCHAR" property="orgid" />
+    <result column="compId" jdbcType="VARCHAR" property="compid" />
+    <result column="selectedYear" jdbcType="VARCHAR" property="selectedyear" />
+    <result column="candidateUUID" jdbcType="VARCHAR" property="candidateuuid" />
+    <result column="candidateId" jdbcType="VARCHAR" property="candidateid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caepatent
+    where patentId = #{patentid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caepatent">
+    insert into caepatent (patentId, patentSn, `year`, 
+      `name`, patentNo, patentType, 
+      inventor, majorCollaborators, academicianId, 
+      academicianUUID, `rank`, mainEffect, 
+      mainContribution, createBy, updateBy, 
+      createDt, updateDt, orgId, 
+      compId, selectedYear, candidateUUID, 
+      candidateId)
+    values (#{patentid,jdbcType=VARCHAR}, #{patentsn,jdbcType=INTEGER}, #{year,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{patentno,jdbcType=VARCHAR}, #{patenttype,jdbcType=VARCHAR}, 
+      #{inventor,jdbcType=VARCHAR}, #{majorcollaborators,jdbcType=VARCHAR}, #{academicianid,jdbcType=VARCHAR}, 
+      #{academicianuuid,jdbcType=VARCHAR}, #{rank,jdbcType=VARCHAR}, #{maineffect,jdbcType=VARCHAR}, 
+      #{maincontribution,jdbcType=VARCHAR}, #{createby,jdbcType=VARCHAR}, #{updateby,jdbcType=VARCHAR}, 
+      #{createdt,jdbcType=TIMESTAMP}, #{updatedt,jdbcType=TIMESTAMP}, #{orgid,jdbcType=VARCHAR}, 
+      #{compid,jdbcType=VARCHAR}, #{selectedyear,jdbcType=VARCHAR}, #{candidateuuid,jdbcType=VARCHAR}, 
+      #{candidateid,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caepatent">
+    update caepatent
+    set patentSn = #{patentsn,jdbcType=INTEGER},
+      `year` = #{year,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      patentNo = #{patentno,jdbcType=VARCHAR},
+      patentType = #{patenttype,jdbcType=VARCHAR},
+      inventor = #{inventor,jdbcType=VARCHAR},
+      majorCollaborators = #{majorcollaborators,jdbcType=VARCHAR},
+      academicianId = #{academicianid,jdbcType=VARCHAR},
+      academicianUUID = #{academicianuuid,jdbcType=VARCHAR},
+      `rank` = #{rank,jdbcType=VARCHAR},
+      mainEffect = #{maineffect,jdbcType=VARCHAR},
+      mainContribution = #{maincontribution,jdbcType=VARCHAR},
+      createBy = #{createby,jdbcType=VARCHAR},
+      updateBy = #{updateby,jdbcType=VARCHAR},
+      createDt = #{createdt,jdbcType=TIMESTAMP},
+      updateDt = #{updatedt,jdbcType=TIMESTAMP},
+      orgId = #{orgid,jdbcType=VARCHAR},
+      compId = #{compid,jdbcType=VARCHAR},
+      selectedYear = #{selectedyear,jdbcType=VARCHAR},
+      candidateUUID = #{candidateuuid,jdbcType=VARCHAR},
+      candidateId = #{candidateid,jdbcType=VARCHAR}
+    where patentId = #{patentid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select patentId, patentSn, `year`, `name`, patentNo, patentType, inventor, majorCollaborators, 
+    academicianId, academicianUUID, `rank`, mainEffect, mainContribution, createBy, updateBy, 
+    createDt, updateDt, orgId, compId, selectedYear, candidateUUID, candidateId
+    from caepatent
+    where patentId = #{patentid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select patentId, patentSn, `year`, `name`, patentNo, patentType, inventor, majorCollaborators, 
+    academicianId, academicianUUID, `rank`, mainEffect, mainContribution, createBy, updateBy, 
+    createDt, updateDt, orgId, compId, selectedYear, candidateUUID, candidateId
+    from caepatent
+  </select>
+</mapper>

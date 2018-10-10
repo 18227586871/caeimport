@@ -1,5 +1,6 @@
 package com.example.bean;
 
+//测试方法
 public class UserBean extends BaseBean {
     private int id;
     private int age;

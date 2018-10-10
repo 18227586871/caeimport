@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaevoteoptionMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caevoteoption">
+    <id column="voteOptionId" jdbcType="VARCHAR" property="voteoptionid" />
+    <result column="voteId" jdbcType="VARCHAR" property="voteid" />
+    <result column="optionTitle" jdbcType="VARCHAR" property="optiontitle" />
+    <result column="optionScore" jdbcType="DOUBLE" property="optionscore" />
+    <result column="maxTicked" jdbcType="INTEGER" property="maxticked" />
+    <result column="upperLimit" jdbcType="INTEGER" property="upperlimit" />
+    <result column="lowerLimit" jdbcType="INTEGER" property="lowerlimit" />
+    <result column="optionSn" jdbcType="INTEGER" property="optionsn" />
+    <result column="voteBallotId" jdbcType="VARCHAR" property="voteballotid" />
+    <result column="voteRoundId" jdbcType="VARCHAR" property="voteroundid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caevoteoption
+    where voteOptionId = #{voteoptionid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caevoteoption">
+    insert into caevoteoption (voteOptionId, voteId, optionTitle, 
+      optionScore, maxTicked, upperLimit, 
+      lowerLimit, optionSn, voteBallotId, 
+      voteRoundId)
+    values (#{voteoptionid,jdbcType=VARCHAR}, #{voteid,jdbcType=VARCHAR}, #{optiontitle,jdbcType=VARCHAR}, 
+      #{optionscore,jdbcType=DOUBLE}, #{maxticked,jdbcType=INTEGER}, #{upperlimit,jdbcType=INTEGER}, 
+      #{lowerlimit,jdbcType=INTEGER}, #{optionsn,jdbcType=INTEGER}, #{voteballotid,jdbcType=VARCHAR}, 
+      #{voteroundid,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caevoteoption">
+    update caevoteoption
+    set voteId = #{voteid,jdbcType=VARCHAR},
+      optionTitle = #{optiontitle,jdbcType=VARCHAR},
+      optionScore = #{optionscore,jdbcType=DOUBLE},
+      maxTicked = #{maxticked,jdbcType=INTEGER},
+      upperLimit = #{upperlimit,jdbcType=INTEGER},
+      lowerLimit = #{lowerlimit,jdbcType=INTEGER},
+      optionSn = #{optionsn,jdbcType=INTEGER},
+      voteBallotId = #{voteballotid,jdbcType=VARCHAR},
+      voteRoundId = #{voteroundid,jdbcType=VARCHAR}
+    where voteOptionId = #{voteoptionid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select voteOptionId, voteId, optionTitle, optionScore, maxTicked, upperLimit, lowerLimit, 
+    optionSn, voteBallotId, voteRoundId
+    from caevoteoption
+    where voteOptionId = #{voteoptionid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select voteOptionId, voteId, optionTitle, optionScore, maxTicked, upperLimit, lowerLimit, 
+    optionSn, voteBallotId, voteRoundId
+    from caevoteoption
+  </select>
+</mapper>

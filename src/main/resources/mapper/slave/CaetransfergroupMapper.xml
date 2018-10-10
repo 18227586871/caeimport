@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaetransfergroupMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caetransfergroup">
+    <id column="transferGroupId" jdbcType="VARCHAR" property="transfergroupid" />
+    <result column="transferIntoDepartmentId" jdbcType="VARCHAR" property="transferintodepartmentid" />
+    <result column="transferIntoGroupId" jdbcType="VARCHAR" property="transferintogroupid" />
+    <result column="transferOutDepartmentId" jdbcType="VARCHAR" property="transferoutdepartmentid" />
+    <result column="transferOutGroupId" jdbcType="VARCHAR" property="transferoutgroupid" />
+    <result column="selectedYear" jdbcType="VARCHAR" property="selectedyear" />
+    <result column="candidateId" jdbcType="VARCHAR" property="candidateid" />
+    <result column="transferIntoNumber" jdbcType="VARCHAR" property="transferintonumber" />
+    <result column="createBy" jdbcType="VARCHAR" property="createby" />
+    <result column="updateBy" jdbcType="VARCHAR" property="updateby" />
+    <result column="createDt" jdbcType="TIMESTAMP" property="createdt" />
+    <result column="updateDt" jdbcType="TIMESTAMP" property="updatedt" />
+    <result column="orgId" jdbcType="VARCHAR" property="orgid" />
+    <result column="compId" jdbcType="VARCHAR" property="compid" />
+    <result column="isEffective" jdbcType="VARCHAR" property="iseffective" />
+    <result column="transferTime" jdbcType="VARCHAR" property="transfertime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caetransfergroup
+    where transferGroupId = #{transfergroupid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caetransfergroup">
+    insert into caetransfergroup (transferGroupId, transferIntoDepartmentId, 
+      transferIntoGroupId, transferOutDepartmentId, 
+      transferOutGroupId, selectedYear, candidateId, 
+      transferIntoNumber, createBy, updateBy, 
+      createDt, updateDt, orgId, 
+      compId, isEffective, transferTime
+      )
+    values (#{transfergroupid,jdbcType=VARCHAR}, #{transferintodepartmentid,jdbcType=VARCHAR}, 
+      #{transferintogroupid,jdbcType=VARCHAR}, #{transferoutdepartmentid,jdbcType=VARCHAR}, 
+      #{transferoutgroupid,jdbcType=VARCHAR}, #{selectedyear,jdbcType=VARCHAR}, #{candidateid,jdbcType=VARCHAR}, 
+      #{transferintonumber,jdbcType=VARCHAR}, #{createby,jdbcType=VARCHAR}, #{updateby,jdbcType=VARCHAR}, 
+      #{createdt,jdbcType=TIMESTAMP}, #{updatedt,jdbcType=TIMESTAMP}, #{orgid,jdbcType=VARCHAR}, 
+      #{compid,jdbcType=VARCHAR}, #{iseffective,jdbcType=VARCHAR}, #{transfertime,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caetransfergroup">
+    update caetransfergroup
+    set transferIntoDepartmentId = #{transferintodepartmentid,jdbcType=VARCHAR},
+      transferIntoGroupId = #{transferintogroupid,jdbcType=VARCHAR},
+      transferOutDepartmentId = #{transferoutdepartmentid,jdbcType=VARCHAR},
+      transferOutGroupId = #{transferoutgroupid,jdbcType=VARCHAR},
+      selectedYear = #{selectedyear,jdbcType=VARCHAR},
+      candidateId = #{candidateid,jdbcType=VARCHAR},
+      transferIntoNumber = #{transferintonumber,jdbcType=VARCHAR},
+      createBy = #{createby,jdbcType=VARCHAR},
+      updateBy = #{updateby,jdbcType=VARCHAR},
+      createDt = #{createdt,jdbcType=TIMESTAMP},
+      updateDt = #{updatedt,jdbcType=TIMESTAMP},
+      orgId = #{orgid,jdbcType=VARCHAR},
+      compId = #{compid,jdbcType=VARCHAR},
+      isEffective = #{iseffective,jdbcType=VARCHAR},
+      transferTime = #{transfertime,jdbcType=VARCHAR}
+    where transferGroupId = #{transfergroupid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select transferGroupId, transferIntoDepartmentId, transferIntoGroupId, transferOutDepartmentId, 
+    transferOutGroupId, selectedYear, candidateId, transferIntoNumber, createBy, updateBy, 
+    createDt, updateDt, orgId, compId, isEffective, transferTime
+    from caetransfergroup
+    where transferGroupId = #{transfergroupid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select transferGroupId, transferIntoDepartmentId, transferIntoGroupId, transferOutDepartmentId, 
+    transferOutGroupId, selectedYear, candidateId, transferIntoNumber, createBy, updateBy, 
+    createDt, updateDt, orgId, compId, isEffective, transferTime
+    from caetransfergroup
+  </select>
+</mapper>

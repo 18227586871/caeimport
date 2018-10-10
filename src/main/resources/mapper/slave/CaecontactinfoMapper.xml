@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaecontactinfoMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caecontactinfo">
+    <id column="contactInfoId" jdbcType="VARCHAR" property="contactinfoid" />
+    <result column="candidateId" jdbcType="VARCHAR" property="candidateid" />
+    <result column="candidateUUID" jdbcType="VARCHAR" property="candidateuuid" />
+    <result column="mobilePhone" jdbcType="VARCHAR" property="mobilephone" />
+    <result column="fixedTelephone" jdbcType="VARCHAR" property="fixedtelephone" />
+    <result column="fax" jdbcType="VARCHAR" property="fax" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="mailingAddress" jdbcType="VARCHAR" property="mailingaddress" />
+    <result column="selectedYear" jdbcType="VARCHAR" property="selectedyear" />
+    <result column="postalCode" jdbcType="VARCHAR" property="postalcode" />
+    <result column="academicianId" jdbcType="VARCHAR" property="academicianid" />
+    <result column="academicianUUID" jdbcType="VARCHAR" property="academicianuuid" />
+    <result column="spouseName" jdbcType="VARCHAR" property="spousename" />
+    <result column="familyAddress" jdbcType="VARCHAR" property="familyaddress" />
+    <result column="familyZipCode" jdbcType="VARCHAR" property="familyzipcode" />
+    <result column="contactName" jdbcType="VARCHAR" property="contactname" />
+    <result column="createBy" jdbcType="VARCHAR" property="createby" />
+    <result column="updateBy" jdbcType="VARCHAR" property="updateby" />
+    <result column="createDt" jdbcType="TIMESTAMP" property="createdt" />
+    <result column="updateDt" jdbcType="TIMESTAMP" property="updatedt" />
+    <result column="orgId" jdbcType="VARCHAR" property="orgid" />
+    <result column="compId" jdbcType="VARCHAR" property="compid" />
+    <result column="contactInformation" jdbcType="VARCHAR" property="contactinformation" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caecontactinfo
+    where contactInfoId = #{contactinfoid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caecontactinfo">
+    insert into caecontactinfo (contactInfoId, candidateId, candidateUUID, 
+      mobilePhone, fixedTelephone, fax, 
+      email, mailingAddress, selectedYear, 
+      postalCode, academicianId, academicianUUID, 
+      spouseName, familyAddress, familyZipCode, 
+      contactName, createBy, updateBy, 
+      createDt, updateDt, orgId, 
+      compId, contactInformation)
+    values (#{contactinfoid,jdbcType=VARCHAR}, #{candidateid,jdbcType=VARCHAR}, #{candidateuuid,jdbcType=VARCHAR}, 
+      #{mobilephone,jdbcType=VARCHAR}, #{fixedtelephone,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{mailingaddress,jdbcType=VARCHAR}, #{selectedyear,jdbcType=VARCHAR}, 
+      #{postalcode,jdbcType=VARCHAR}, #{academicianid,jdbcType=VARCHAR}, #{academicianuuid,jdbcType=VARCHAR}, 
+      #{spousename,jdbcType=VARCHAR}, #{familyaddress,jdbcType=VARCHAR}, #{familyzipcode,jdbcType=VARCHAR}, 
+      #{contactname,jdbcType=VARCHAR}, #{createby,jdbcType=VARCHAR}, #{updateby,jdbcType=VARCHAR}, 
+      #{createdt,jdbcType=TIMESTAMP}, #{updatedt,jdbcType=TIMESTAMP}, #{orgid,jdbcType=VARCHAR}, 
+      #{compid,jdbcType=VARCHAR}, #{contactinformation,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caecontactinfo">
+    update caecontactinfo
+    set candidateId = #{candidateid,jdbcType=VARCHAR},
+      candidateUUID = #{candidateuuid,jdbcType=VARCHAR},
+      mobilePhone = #{mobilephone,jdbcType=VARCHAR},
+      fixedTelephone = #{fixedtelephone,jdbcType=VARCHAR},
+      fax = #{fax,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      mailingAddress = #{mailingaddress,jdbcType=VARCHAR},
+      selectedYear = #{selectedyear,jdbcType=VARCHAR},
+      postalCode = #{postalcode,jdbcType=VARCHAR},
+      academicianId = #{academicianid,jdbcType=VARCHAR},
+      academicianUUID = #{academicianuuid,jdbcType=VARCHAR},
+      spouseName = #{spousename,jdbcType=VARCHAR},
+      familyAddress = #{familyaddress,jdbcType=VARCHAR},
+      familyZipCode = #{familyzipcode,jdbcType=VARCHAR},
+      contactName = #{contactname,jdbcType=VARCHAR},
+      createBy = #{createby,jdbcType=VARCHAR},
+      updateBy = #{updateby,jdbcType=VARCHAR},
+      createDt = #{createdt,jdbcType=TIMESTAMP},
+      updateDt = #{updatedt,jdbcType=TIMESTAMP},
+      orgId = #{orgid,jdbcType=VARCHAR},
+      compId = #{compid,jdbcType=VARCHAR},
+      contactInformation = #{contactinformation,jdbcType=VARCHAR}
+    where contactInfoId = #{contactinfoid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select contactInfoId, candidateId, candidateUUID, mobilePhone, fixedTelephone, fax, 
+    email, mailingAddress, selectedYear, postalCode, academicianId, academicianUUID, 
+    spouseName, familyAddress, familyZipCode, contactName, createBy, updateBy, createDt, 
+    updateDt, orgId, compId, contactInformation
+    from caecontactinfo
+    where contactInfoId = #{contactinfoid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select contactInfoId, candidateId, candidateUUID, mobilePhone, fixedTelephone, fax, 
+    email, mailingAddress, selectedYear, postalCode, academicianId, academicianUUID, 
+    spouseName, familyAddress, familyZipCode, contactName, createBy, updateBy, createDt, 
+    updateDt, orgId, compId, contactInformation
+    from caecontactinfo
+  </select>
+</mapper>

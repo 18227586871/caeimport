@@ -15,7 +15,7 @@ import com.example.common.Common;
 public class DataSourceAspect {
     Logger logger = LoggerFactory.getLogger(DataSourceAspect.class);
 
-    @Before("execution(* com.example.mybatis.dao.*.*(..))")
+    @Before("execution(* com.example.*.dao.*.*(..))")
     public void setDataSourcePgKey(JoinPoint point) {
         Object args[] = point.getArgs();
         for (Object obj : args) {

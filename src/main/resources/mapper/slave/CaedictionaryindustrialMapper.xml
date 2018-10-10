@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaedictionaryindustrialMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caedictionaryindustrial">
+    <id column="industrialId" jdbcType="VARCHAR" property="industrialid" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caedictionaryindustrial
+    where industrialId = #{industrialid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caedictionaryindustrial">
+    insert into caedictionaryindustrial (industrialId, `number`, `name`
+      )
+    values (#{industrialid,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caedictionaryindustrial">
+    update caedictionaryindustrial
+    set `number` = #{number,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR}
+    where industrialId = #{industrialid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select industrialId, `number`, `name`
+    from caedictionaryindustrial
+    where industrialId = #{industrialid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select industrialId, `number`, `name`
+    from caedictionaryindustrial
+  </select>
+</mapper>

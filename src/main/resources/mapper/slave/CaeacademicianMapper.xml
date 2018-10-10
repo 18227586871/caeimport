@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaeacademicianMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caeacademician">
+    <id column="academicianId" jdbcType="VARCHAR" property="academicianid" />
+    <result column="academicianUUID" jdbcType="VARCHAR" property="academicianuuid" />
+    <result column="selectedYear" jdbcType="VARCHAR" property="selectedyear" />
+    <result column="createDt" jdbcType="TIMESTAMP" property="createdt" />
+    <result column="createBy" jdbcType="VARCHAR" property="createby" />
+    <result column="updateDt" jdbcType="TIMESTAMP" property="updatedt" />
+    <result column="updateBy" jdbcType="VARCHAR" property="updateby" />
+    <result column="departmentNumber" jdbcType="VARCHAR" property="departmentnumber" />
+    <result column="departmentAcrossNumber" jdbcType="VARCHAR" property="departmentacrossnumber" />
+    <result column="isDead" jdbcType="INTEGER" property="isdead" />
+    <result column="deathDate" jdbcType="VARCHAR" property="deathdate" />
+    <result column="isRecall" jdbcType="INTEGER" property="isrecall" />
+    <result column="academicianName" jdbcType="VARCHAR" property="academicianname" />
+    <result column="academicianLastNameSpelling" jdbcType="VARCHAR" property="academicianlastnamespelling" />
+    <result column="academicianFirstNameSpelling" jdbcType="VARCHAR" property="academicianfirstnamespelling" />
+    <result column="certificateType" jdbcType="VARCHAR" property="certificatetype" />
+    <result column="certificateNumber" jdbcType="VARCHAR" property="certificatenumber" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="ethnic" jdbcType="INTEGER" property="ethnic" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+    <result column="age" jdbcType="INTEGER" property="age" />
+    <result column="originCountry" jdbcType="INTEGER" property="origincountry" />
+    <result column="originProvince" jdbcType="INTEGER" property="originprovince" />
+    <result column="originCity" jdbcType="VARCHAR" property="origincity" />
+    <result column="originDistrict" jdbcType="INTEGER" property="origindistrict" />
+    <result column="birthCountry" jdbcType="INTEGER" property="birthcountry" />
+    <result column="birthProvince" jdbcType="INTEGER" property="birthprovince" />
+    <result column="birthCity" jdbcType="VARCHAR" property="birthcity" />
+    <result column="birthDistrict" jdbcType="INTEGER" property="birthdistrict" />
+    <result column="technical" jdbcType="INTEGER" property="technical" />
+    <result column="subject" jdbcType="INTEGER" property="subject" />
+    <result column="subjectFirst" jdbcType="INTEGER" property="subjectfirst" />
+    <result column="subjectSecond" jdbcType="INTEGER" property="subjectsecond" />
+    <result column="subjectThird" jdbcType="INTEGER" property="subjectthird" />
+    <result column="professional" jdbcType="VARCHAR" property="professional" />
+    <result column="degreeFirst" jdbcType="INTEGER" property="degreefirst" />
+    <result column="academicFirst" jdbcType="INTEGER" property="academicfirst" />
+    <result column="degreeHighest" jdbcType="INTEGER" property="degreehighest" />
+    <result column="academicHighest" jdbcType="INTEGER" property="academichighest" />
+    <result column="isPostdoctoralExperience" jdbcType="VARCHAR" property="ispostdoctoralexperience" />
+    <result column="academyScienceHistory" jdbcType="VARCHAR" property="academysciencehistory" />
+    <result column="engineeringAcademyHistory" jdbcType="VARCHAR" property="engineeringacademyhistory" />
+    <result column="candidateID" jdbcType="VARCHAR" property="candidateid" />
+    <result column="importBy" jdbcType="VARCHAR" property="importby" />
+    <result column="importDt" jdbcType="TIMESTAMP" property="importdt" />
+    <result column="academicianNumber" jdbcType="INTEGER" property="academiciannumber" />
+    <result column="orgId" jdbcType="VARCHAR" property="orgid" />
+    <result column="compId" jdbcType="VARCHAR" property="compid" />
+    <result column="recommendName" jdbcType="VARCHAR" property="recommendname" />
+    <result column="recommendLeader" jdbcType="VARCHAR" property="recommendleader" />
+    <result column="isReview" jdbcType="INTEGER" property="isreview" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caeacademician
+    where academicianId = #{academicianid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caeacademician">
+    insert into caeacademician (academicianId, academicianUUID, selectedYear, 
+      createDt, createBy, updateDt, 
+      updateBy, departmentNumber, departmentAcrossNumber, 
+      isDead, deathDate, isRecall, 
+      academicianName, academicianLastNameSpelling, 
+      academicianFirstNameSpelling, certificateType, 
+      certificateNumber, gender, ethnic, 
+      birthday, age, originCountry, 
+      originProvince, originCity, originDistrict, 
+      birthCountry, birthProvince, birthCity, 
+      birthDistrict, technical, subject, 
+      subjectFirst, subjectSecond, subjectThird, 
+      professional, degreeFirst, academicFirst, 
+      degreeHighest, academicHighest, isPostdoctoralExperience, 
+      academyScienceHistory, engineeringAcademyHistory, 
+      candidateID, importBy, importDt, 
+      academicianNumber, orgId, compId, 
+      recommendName, recommendLeader, isReview
+      )
+    values (#{academicianid,jdbcType=VARCHAR}, #{academicianuuid,jdbcType=VARCHAR}, #{selectedyear,jdbcType=VARCHAR}, 
+      #{createdt,jdbcType=TIMESTAMP}, #{createby,jdbcType=VARCHAR}, #{updatedt,jdbcType=TIMESTAMP}, 
+      #{updateby,jdbcType=VARCHAR}, #{departmentnumber,jdbcType=VARCHAR}, #{departmentacrossnumber,jdbcType=VARCHAR}, 
+      #{isdead,jdbcType=INTEGER}, #{deathdate,jdbcType=VARCHAR}, #{isrecall,jdbcType=INTEGER}, 
+      #{academicianname,jdbcType=VARCHAR}, #{academicianlastnamespelling,jdbcType=VARCHAR}, 
+      #{academicianfirstnamespelling,jdbcType=VARCHAR}, #{certificatetype,jdbcType=VARCHAR}, 
+      #{certificatenumber,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER}, #{ethnic,jdbcType=INTEGER}, 
+      #{birthday,jdbcType=DATE}, #{age,jdbcType=INTEGER}, #{origincountry,jdbcType=INTEGER}, 
+      #{originprovince,jdbcType=INTEGER}, #{origincity,jdbcType=VARCHAR}, #{origindistrict,jdbcType=INTEGER}, 
+      #{birthcountry,jdbcType=INTEGER}, #{birthprovince,jdbcType=INTEGER}, #{birthcity,jdbcType=VARCHAR}, 
+      #{birthdistrict,jdbcType=INTEGER}, #{technical,jdbcType=INTEGER}, #{subject,jdbcType=INTEGER}, 
+      #{subjectfirst,jdbcType=INTEGER}, #{subjectsecond,jdbcType=INTEGER}, #{subjectthird,jdbcType=INTEGER}, 
+      #{professional,jdbcType=VARCHAR}, #{degreefirst,jdbcType=INTEGER}, #{academicfirst,jdbcType=INTEGER}, 
+      #{degreehighest,jdbcType=INTEGER}, #{academichighest,jdbcType=INTEGER}, #{ispostdoctoralexperience,jdbcType=VARCHAR}, 
+      #{academysciencehistory,jdbcType=VARCHAR}, #{engineeringacademyhistory,jdbcType=VARCHAR}, 
+      #{candidateid,jdbcType=VARCHAR}, #{importby,jdbcType=VARCHAR}, #{importdt,jdbcType=TIMESTAMP}, 
+      #{academiciannumber,jdbcType=INTEGER}, #{orgid,jdbcType=VARCHAR}, #{compid,jdbcType=VARCHAR}, 
+      #{recommendname,jdbcType=VARCHAR}, #{recommendleader,jdbcType=VARCHAR}, #{isreview,jdbcType=INTEGER}
+      )
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caeacademician">
+    update caeacademician
+    set academicianUUID = #{academicianuuid,jdbcType=VARCHAR},
+      selectedYear = #{selectedyear,jdbcType=VARCHAR},
+      createDt = #{createdt,jdbcType=TIMESTAMP},
+      createBy = #{createby,jdbcType=VARCHAR},
+      updateDt = #{updatedt,jdbcType=TIMESTAMP},
+      updateBy = #{updateby,jdbcType=VARCHAR},
+      departmentNumber = #{departmentnumber,jdbcType=VARCHAR},
+      departmentAcrossNumber = #{departmentacrossnumber,jdbcType=VARCHAR},
+      isDead = #{isdead,jdbcType=INTEGER},
+      deathDate = #{deathdate,jdbcType=VARCHAR},
+      isRecall = #{isrecall,jdbcType=INTEGER},
+      academicianName = #{academicianname,jdbcType=VARCHAR},
+      academicianLastNameSpelling = #{academicianlastnamespelling,jdbcType=VARCHAR},
+      academicianFirstNameSpelling = #{academicianfirstnamespelling,jdbcType=VARCHAR},
+      certificateType = #{certificatetype,jdbcType=VARCHAR},
+      certificateNumber = #{certificatenumber,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      ethnic = #{ethnic,jdbcType=INTEGER},
+      birthday = #{birthday,jdbcType=DATE},
+      age = #{age,jdbcType=INTEGER},
+      originCountry = #{origincountry,jdbcType=INTEGER},
+      originProvince = #{originprovince,jdbcType=INTEGER},
+      originCity = #{origincity,jdbcType=VARCHAR},
+      originDistrict = #{origindistrict,jdbcType=INTEGER},
+      birthCountry = #{birthcountry,jdbcType=INTEGER},
+      birthProvince = #{birthprovince,jdbcType=INTEGER},
+      birthCity = #{birthcity,jdbcType=VARCHAR},
+      birthDistrict = #{birthdistrict,jdbcType=INTEGER},
+      technical = #{technical,jdbcType=INTEGER},
+      subject = #{subject,jdbcType=INTEGER},
+      subjectFirst = #{subjectfirst,jdbcType=INTEGER},
+      subjectSecond = #{subjectsecond,jdbcType=INTEGER},
+      subjectThird = #{subjectthird,jdbcType=INTEGER},
+      professional = #{professional,jdbcType=VARCHAR},
+      degreeFirst = #{degreefirst,jdbcType=INTEGER},
+      academicFirst = #{academicfirst,jdbcType=INTEGER},
+      degreeHighest = #{degreehighest,jdbcType=INTEGER},
+      academicHighest = #{academichighest,jdbcType=INTEGER},
+      isPostdoctoralExperience = #{ispostdoctoralexperience,jdbcType=VARCHAR},
+      academyScienceHistory = #{academysciencehistory,jdbcType=VARCHAR},
+      engineeringAcademyHistory = #{engineeringacademyhistory,jdbcType=VARCHAR},
+      candidateID = #{candidateid,jdbcType=VARCHAR},
+      importBy = #{importby,jdbcType=VARCHAR},
+      importDt = #{importdt,jdbcType=TIMESTAMP},
+      academicianNumber = #{academiciannumber,jdbcType=INTEGER},
+      orgId = #{orgid,jdbcType=VARCHAR},
+      compId = #{compid,jdbcType=VARCHAR},
+      recommendName = #{recommendname,jdbcType=VARCHAR},
+      recommendLeader = #{recommendleader,jdbcType=VARCHAR},
+      isReview = #{isreview,jdbcType=INTEGER}
+    where academicianId = #{academicianid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select academicianId, academicianUUID, selectedYear, createDt, createBy, updateDt, 
+    updateBy, departmentNumber, departmentAcrossNumber, isDead, deathDate, isRecall, 
+    academicianName, academicianLastNameSpelling, academicianFirstNameSpelling, certificateType, 
+    certificateNumber, gender, ethnic, birthday, age, originCountry, originProvince, 
+    originCity, originDistrict, birthCountry, birthProvince, birthCity, birthDistrict, 
+    technical, subject, subjectFirst, subjectSecond, subjectThird, professional, degreeFirst, 
+    academicFirst, degreeHighest, academicHighest, isPostdoctoralExperience, academyScienceHistory, 
+    engineeringAcademyHistory, candidateID, importBy, importDt, academicianNumber, orgId, 
+    compId, recommendName, recommendLeader, isReview
+    from caeacademician
+    where academicianId = #{academicianid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select academicianId, academicianUUID, selectedYear, createDt, createBy, updateDt, 
+    updateBy, departmentNumber, departmentAcrossNumber, isDead, deathDate, isRecall, 
+    academicianName, academicianLastNameSpelling, academicianFirstNameSpelling, certificateType, 
+    certificateNumber, gender, ethnic, birthday, age, originCountry, originProvince, 
+    originCity, originDistrict, birthCountry, birthProvince, birthCity, birthDistrict, 
+    technical, subject, subjectFirst, subjectSecond, subjectThird, professional, degreeFirst, 
+    academicFirst, degreeHighest, academicHighest, isPostdoctoralExperience, academyScienceHistory, 
+    engineeringAcademyHistory, candidateID, importBy, importDt, academicianNumber, orgId, 
+    compId, recommendName, recommendLeader, isReview
+    from caeacademician
+  </select>
+</mapper>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaeaffiliatedpartyMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caeaffiliatedparty">
+    <id column="affiliatedPartyId" jdbcType="VARCHAR" property="affiliatedpartyid" />
+    <result column="academicianId" jdbcType="VARCHAR" property="academicianid" />
+    <result column="academicianUUID" jdbcType="VARCHAR" property="academicianuuid" />
+    <result column="selectedYear" jdbcType="VARCHAR" property="selectedyear" />
+    <result column="candidateId" jdbcType="VARCHAR" property="candidateid" />
+    <result column="candidateUUID" jdbcType="VARCHAR" property="candidateuuid" />
+    <result column="affiliatedPartySn" jdbcType="INTEGER" property="affiliatedpartysn" />
+    <result column="partisan" jdbcType="VARCHAR" property="partisan" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="partyPositions" jdbcType="VARCHAR" property="partypositions" />
+    <result column="participationDate" jdbcType="VARCHAR" property="participationdate" />
+    <result column="createBy" jdbcType="VARCHAR" property="createby" />
+    <result column="updateBy" jdbcType="VARCHAR" property="updateby" />
+    <result column="createDt" jdbcType="TIMESTAMP" property="createdt" />
+    <result column="updateDt" jdbcType="TIMESTAMP" property="updatedt" />
+    <result column="orgId" jdbcType="VARCHAR" property="orgid" />
+    <result column="compId" jdbcType="VARCHAR" property="compid" />
+    <result column="endTime" jdbcType="VARCHAR" property="endtime" />
+    <result column="startTime" jdbcType="VARCHAR" property="starttime" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caeaffiliatedparty
+    where affiliatedPartyId = #{affiliatedpartyid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caeaffiliatedparty">
+    insert into caeaffiliatedparty (affiliatedPartyId, academicianId, 
+      academicianUUID, selectedYear, candidateId, 
+      candidateUUID, affiliatedPartySn, partisan, 
+      `name`, partyPositions, participationDate, 
+      createBy, updateBy, createDt, 
+      updateDt, orgId, compId, 
+      endTime, startTime)
+    values (#{affiliatedpartyid,jdbcType=VARCHAR}, #{academicianid,jdbcType=VARCHAR}, 
+      #{academicianuuid,jdbcType=VARCHAR}, #{selectedyear,jdbcType=VARCHAR}, #{candidateid,jdbcType=VARCHAR}, 
+      #{candidateuuid,jdbcType=VARCHAR}, #{affiliatedpartysn,jdbcType=INTEGER}, #{partisan,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{partypositions,jdbcType=VARCHAR}, #{participationdate,jdbcType=VARCHAR}, 
+      #{createby,jdbcType=VARCHAR}, #{updateby,jdbcType=VARCHAR}, #{createdt,jdbcType=TIMESTAMP}, 
+      #{updatedt,jdbcType=TIMESTAMP}, #{orgid,jdbcType=VARCHAR}, #{compid,jdbcType=VARCHAR}, 
+      #{endtime,jdbcType=VARCHAR}, #{starttime,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caeaffiliatedparty">
+    update caeaffiliatedparty
+    set academicianId = #{academicianid,jdbcType=VARCHAR},
+      academicianUUID = #{academicianuuid,jdbcType=VARCHAR},
+      selectedYear = #{selectedyear,jdbcType=VARCHAR},
+      candidateId = #{candidateid,jdbcType=VARCHAR},
+      candidateUUID = #{candidateuuid,jdbcType=VARCHAR},
+      affiliatedPartySn = #{affiliatedpartysn,jdbcType=INTEGER},
+      partisan = #{partisan,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      partyPositions = #{partypositions,jdbcType=VARCHAR},
+      participationDate = #{participationdate,jdbcType=VARCHAR},
+      createBy = #{createby,jdbcType=VARCHAR},
+      updateBy = #{updateby,jdbcType=VARCHAR},
+      createDt = #{createdt,jdbcType=TIMESTAMP},
+      updateDt = #{updatedt,jdbcType=TIMESTAMP},
+      orgId = #{orgid,jdbcType=VARCHAR},
+      compId = #{compid,jdbcType=VARCHAR},
+      endTime = #{endtime,jdbcType=VARCHAR},
+      startTime = #{starttime,jdbcType=VARCHAR}
+    where affiliatedPartyId = #{affiliatedpartyid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select affiliatedPartyId, academicianId, academicianUUID, selectedYear, candidateId, 
+    candidateUUID, affiliatedPartySn, partisan, `name`, partyPositions, participationDate, 
+    createBy, updateBy, createDt, updateDt, orgId, compId, endTime, startTime
+    from caeaffiliatedparty
+    where affiliatedPartyId = #{affiliatedpartyid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select affiliatedPartyId, academicianId, academicianUUID, selectedYear, candidateId, 
+    candidateUUID, affiliatedPartySn, partisan, `name`, partyPositions, participationDate, 
+    createBy, updateBy, createDt, updateDt, orgId, compId, endTime, startTime
+    from caeaffiliatedparty
+  </select>
+</mapper>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaeemployerMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caeemployer">
+    <id column="employerId" jdbcType="VARCHAR" property="employerid" />
+    <result column="employerSn" jdbcType="INTEGER" property="employersn" />
+    <result column="department" jdbcType="INTEGER" property="department" />
+    <result column="createBy" jdbcType="VARCHAR" property="createby" />
+    <result column="updateBy" jdbcType="VARCHAR" property="updateby" />
+    <result column="createDt" jdbcType="TIMESTAMP" property="createdt" />
+    <result column="updateDt" jdbcType="TIMESTAMP" property="updatedt" />
+    <result column="orgId" jdbcType="VARCHAR" property="orgid" />
+    <result column="compId" jdbcType="VARCHAR" property="compid" />
+    <result column="fullName" jdbcType="VARCHAR" property="fullname" />
+    <result column="academicianId" jdbcType="VARCHAR" property="academicianid" />
+    <result column="academicianUUID" jdbcType="VARCHAR" property="academicianuuid" />
+    <result column="abbreviation" jdbcType="VARCHAR" property="abbreviation" />
+    <result column="technicalPosition" jdbcType="VARCHAR" property="technicalposition" />
+    <result column="administrativeDuties" jdbcType="VARCHAR" property="administrativeduties" />
+    <result column="mailingAddress" jdbcType="VARCHAR" property="mailingaddress" />
+    <result column="zipCode" jdbcType="VARCHAR" property="zipcode" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="fax" jdbcType="VARCHAR" property="fax" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="province" jdbcType="VARCHAR" property="province" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="selectedYear" jdbcType="VARCHAR" property="selectedyear" />
+    <result column="district" jdbcType="VARCHAR" property="district" />
+    <result column="natureUnit" jdbcType="INTEGER" property="natureunit" />
+    <result column="candidateId" jdbcType="VARCHAR" property="candidateid" />
+    <result column="candidateUUID" jdbcType="VARCHAR" property="candidateuuid" />
+    <result column="industrialNature" jdbcType="INTEGER" property="industrialnature" />
+    <result column="departmentCategory" jdbcType="INTEGER" property="departmentcategory" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caeemployer
+    where employerId = #{employerid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caeemployer">
+    insert into caeemployer (employerId, employerSn, department, 
+      createBy, updateBy, createDt, 
+      updateDt, orgId, compId, 
+      fullName, academicianId, academicianUUID, 
+      abbreviation, technicalPosition, administrativeDuties, 
+      mailingAddress, zipCode, phone, 
+      fax, country, province, 
+      city, selectedYear, district, 
+      natureUnit, candidateId, candidateUUID, 
+      industrialNature, departmentCategory)
+    values (#{employerid,jdbcType=VARCHAR}, #{employersn,jdbcType=INTEGER}, #{department,jdbcType=INTEGER}, 
+      #{createby,jdbcType=VARCHAR}, #{updateby,jdbcType=VARCHAR}, #{createdt,jdbcType=TIMESTAMP}, 
+      #{updatedt,jdbcType=TIMESTAMP}, #{orgid,jdbcType=VARCHAR}, #{compid,jdbcType=VARCHAR}, 
+      #{fullname,jdbcType=VARCHAR}, #{academicianid,jdbcType=VARCHAR}, #{academicianuuid,jdbcType=VARCHAR}, 
+      #{abbreviation,jdbcType=VARCHAR}, #{technicalposition,jdbcType=VARCHAR}, #{administrativeduties,jdbcType=VARCHAR}, 
+      #{mailingaddress,jdbcType=VARCHAR}, #{zipcode,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{fax,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, #{province,jdbcType=VARCHAR}, 
+      #{city,jdbcType=VARCHAR}, #{selectedyear,jdbcType=VARCHAR}, #{district,jdbcType=VARCHAR}, 
+      #{natureunit,jdbcType=INTEGER}, #{candidateid,jdbcType=VARCHAR}, #{candidateuuid,jdbcType=VARCHAR}, 
+      #{industrialnature,jdbcType=INTEGER}, #{departmentcategory,jdbcType=INTEGER})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caeemployer">
+    update caeemployer
+    set employerSn = #{employersn,jdbcType=INTEGER},
+      department = #{department,jdbcType=INTEGER},
+      createBy = #{createby,jdbcType=VARCHAR},
+      updateBy = #{updateby,jdbcType=VARCHAR},
+      createDt = #{createdt,jdbcType=TIMESTAMP},
+      updateDt = #{updatedt,jdbcType=TIMESTAMP},
+      orgId = #{orgid,jdbcType=VARCHAR},
+      compId = #{compid,jdbcType=VARCHAR},
+      fullName = #{fullname,jdbcType=VARCHAR},
+      academicianId = #{academicianid,jdbcType=VARCHAR},
+      academicianUUID = #{academicianuuid,jdbcType=VARCHAR},
+      abbreviation = #{abbreviation,jdbcType=VARCHAR},
+      technicalPosition = #{technicalposition,jdbcType=VARCHAR},
+      administrativeDuties = #{administrativeduties,jdbcType=VARCHAR},
+      mailingAddress = #{mailingaddress,jdbcType=VARCHAR},
+      zipCode = #{zipcode,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      fax = #{fax,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      selectedYear = #{selectedyear,jdbcType=VARCHAR},
+      district = #{district,jdbcType=VARCHAR},
+      natureUnit = #{natureunit,jdbcType=INTEGER},
+      candidateId = #{candidateid,jdbcType=VARCHAR},
+      candidateUUID = #{candidateuuid,jdbcType=VARCHAR},
+      industrialNature = #{industrialnature,jdbcType=INTEGER},
+      departmentCategory = #{departmentcategory,jdbcType=INTEGER}
+    where employerId = #{employerid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select employerId, employerSn, department, createBy, updateBy, createDt, updateDt, 
+    orgId, compId, fullName, academicianId, academicianUUID, abbreviation, technicalPosition, 
+    administrativeDuties, mailingAddress, zipCode, phone, fax, country, province, city, 
+    selectedYear, district, natureUnit, candidateId, candidateUUID, industrialNature, 
+    departmentCategory
+    from caeemployer
+    where employerId = #{employerid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select employerId, employerSn, department, createBy, updateBy, createDt, updateDt, 
+    orgId, compId, fullName, academicianId, academicianUUID, abbreviation, technicalPosition, 
+    administrativeDuties, mailingAddress, zipCode, phone, fax, country, province, city, 
+    selectedYear, district, natureUnit, candidateId, candidateUUID, industrialNature, 
+    departmentCategory
+    from caeemployer
+  </select>
+</mapper>

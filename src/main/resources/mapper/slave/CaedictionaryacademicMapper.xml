@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaedictionaryacademicMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caedictionaryacademic">
+    <id column="academicId" jdbcType="VARCHAR" property="academicid" />
+    <result column="number" jdbcType="VARCHAR" property="number" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="isEffective" jdbcType="VARCHAR" property="iseffective" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caedictionaryacademic
+    where academicId = #{academicid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caedictionaryacademic">
+    insert into caedictionaryacademic (academicId, `number`, `name`, 
+      isEffective)
+    values (#{academicid,jdbcType=VARCHAR}, #{number,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{iseffective,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caedictionaryacademic">
+    update caedictionaryacademic
+    set `number` = #{number,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      isEffective = #{iseffective,jdbcType=VARCHAR}
+    where academicId = #{academicid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select academicId, `number`, `name`, isEffective
+    from caedictionaryacademic
+    where academicId = #{academicid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select academicId, `number`, `name`, isEffective
+    from caedictionaryacademic
+  </select>
+</mapper>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaemainexperienceMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caemainexperience">
+    <id column="mainExperienceId" jdbcType="VARCHAR" property="mainexperienceid" />
+    <result column="academicianId" jdbcType="VARCHAR" property="academicianid" />
+    <result column="academicianUUID" jdbcType="VARCHAR" property="academicianuuid" />
+    <result column="originalPosition" jdbcType="VARCHAR" property="originalposition" />
+    <result column="otherPosition" jdbcType="VARCHAR" property="otherposition" />
+    <result column="county" jdbcType="VARCHAR" property="county" />
+    <result column="createBy" jdbcType="VARCHAR" property="createby" />
+    <result column="updateBy" jdbcType="VARCHAR" property="updateby" />
+    <result column="createDt" jdbcType="TIMESTAMP" property="createdt" />
+    <result column="updateDt" jdbcType="TIMESTAMP" property="updatedt" />
+    <result column="orgId" jdbcType="VARCHAR" property="orgid" />
+    <result column="compId" jdbcType="VARCHAR" property="compid" />
+    <result column="selectedYear" jdbcType="VARCHAR" property="selectedyear" />
+    <result column="candidateId" jdbcType="VARCHAR" property="candidateid" />
+    <result column="candidateUUID" jdbcType="VARCHAR" property="candidateuuid" />
+    <result column="mainExperienceSn" jdbcType="INTEGER" property="mainexperiencesn" />
+    <result column="startTime" jdbcType="VARCHAR" property="starttime" />
+    <result column="endTime" jdbcType="VARCHAR" property="endtime" />
+    <result column="department" jdbcType="VARCHAR" property="department" />
+    <result column="administrativeDuties" jdbcType="VARCHAR" property="administrativeduties" />
+    <result column="technicalPosition" jdbcType="VARCHAR" property="technicalposition" />
+    <result column="position" jdbcType="VARCHAR" property="position" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caemainexperience
+    where mainExperienceId = #{mainexperienceid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caemainexperience">
+    insert into caemainexperience (mainExperienceId, academicianId, 
+      academicianUUID, originalPosition, otherPosition, 
+      county, createBy, updateBy, 
+      createDt, updateDt, orgId, 
+      compId, selectedYear, candidateId, 
+      candidateUUID, mainExperienceSn, startTime, 
+      endTime, department, administrativeDuties, 
+      technicalPosition, `position`)
+    values (#{mainexperienceid,jdbcType=VARCHAR}, #{academicianid,jdbcType=VARCHAR}, 
+      #{academicianuuid,jdbcType=VARCHAR}, #{originalposition,jdbcType=VARCHAR}, #{otherposition,jdbcType=VARCHAR}, 
+      #{county,jdbcType=VARCHAR}, #{createby,jdbcType=VARCHAR}, #{updateby,jdbcType=VARCHAR}, 
+      #{createdt,jdbcType=TIMESTAMP}, #{updatedt,jdbcType=TIMESTAMP}, #{orgid,jdbcType=VARCHAR}, 
+      #{compid,jdbcType=VARCHAR}, #{selectedyear,jdbcType=VARCHAR}, #{candidateid,jdbcType=VARCHAR}, 
+      #{candidateuuid,jdbcType=VARCHAR}, #{mainexperiencesn,jdbcType=INTEGER}, #{starttime,jdbcType=VARCHAR}, 
+      #{endtime,jdbcType=VARCHAR}, #{department,jdbcType=VARCHAR}, #{administrativeduties,jdbcType=VARCHAR}, 
+      #{technicalposition,jdbcType=VARCHAR}, #{position,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caemainexperience">
+    update caemainexperience
+    set academicianId = #{academicianid,jdbcType=VARCHAR},
+      academicianUUID = #{academicianuuid,jdbcType=VARCHAR},
+      originalPosition = #{originalposition,jdbcType=VARCHAR},
+      otherPosition = #{otherposition,jdbcType=VARCHAR},
+      county = #{county,jdbcType=VARCHAR},
+      createBy = #{createby,jdbcType=VARCHAR},
+      updateBy = #{updateby,jdbcType=VARCHAR},
+      createDt = #{createdt,jdbcType=TIMESTAMP},
+      updateDt = #{updatedt,jdbcType=TIMESTAMP},
+      orgId = #{orgid,jdbcType=VARCHAR},
+      compId = #{compid,jdbcType=VARCHAR},
+      selectedYear = #{selectedyear,jdbcType=VARCHAR},
+      candidateId = #{candidateid,jdbcType=VARCHAR},
+      candidateUUID = #{candidateuuid,jdbcType=VARCHAR},
+      mainExperienceSn = #{mainexperiencesn,jdbcType=INTEGER},
+      startTime = #{starttime,jdbcType=VARCHAR},
+      endTime = #{endtime,jdbcType=VARCHAR},
+      department = #{department,jdbcType=VARCHAR},
+      administrativeDuties = #{administrativeduties,jdbcType=VARCHAR},
+      technicalPosition = #{technicalposition,jdbcType=VARCHAR},
+      `position` = #{position,jdbcType=VARCHAR}
+    where mainExperienceId = #{mainexperienceid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select mainExperienceId, academicianId, academicianUUID, originalPosition, otherPosition, 
+    county, createBy, updateBy, createDt, updateDt, orgId, compId, selectedYear, candidateId, 
+    candidateUUID, mainExperienceSn, startTime, endTime, department, administrativeDuties, 
+    technicalPosition, `position`
+    from caemainexperience
+    where mainExperienceId = #{mainexperienceid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select mainExperienceId, academicianId, academicianUUID, originalPosition, otherPosition, 
+    county, createBy, updateBy, createDt, updateDt, orgId, compId, selectedYear, candidateId, 
+    candidateUUID, mainExperienceSn, startTime, endTime, department, administrativeDuties, 
+    technicalPosition, `position`
+    from caemainexperience
+  </select>
+</mapper>

@@ -1,12 +1,10 @@
 package com.example.master.entity;
 
-import com.example.bean.BaseBean;
-
 import java.io.Serializable;
 import java.util.Date;
 
-public class Candidate extends BaseBean implements Serializable {
-    private Integer candidateid;
+public class Candidate implements Serializable {
+    private String candidateid;
 
     private String candidateuuid;
 
@@ -60,7 +58,7 @@ public class Candidate extends BaseBean implements Serializable {
 
     private String birthdistrict;
 
-    private Integer technical;
+    private Integer position;
 
     private Integer subject;
 
@@ -136,7 +134,7 @@ public class Candidate extends BaseBean implements Serializable {
 
     private String unacceptreason;
 
-    private String technicalmore;
+    private String positionmore;
 
     private String academichighestmore;
 
@@ -166,12 +164,12 @@ public class Candidate extends BaseBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    public Integer getCandidateid() {
+    public String getCandidateid() {
         return candidateid;
     }
 
-    public void setCandidateid(Integer candidateid) {
-        this.candidateid = candidateid;
+    public void setCandidateid(String candidateid) {
+        this.candidateid = candidateid == null ? null : candidateid.trim();
     }
 
     public String getCandidateuuid() {
@@ -382,12 +380,12 @@ public class Candidate extends BaseBean implements Serializable {
         this.birthdistrict = birthdistrict == null ? null : birthdistrict.trim();
     }
 
-    public Integer getTechnical() {
-        return technical;
+    public Integer getposition() {
+        return position;
     }
 
-    public void setTechnical(Integer technical) {
-        this.technical = technical;
+    public void setposition(Integer position) {
+        this.position = position;
     }
 
     public Integer getSubject() {
@@ -686,12 +684,12 @@ public class Candidate extends BaseBean implements Serializable {
         this.unacceptreason = unacceptreason == null ? null : unacceptreason.trim();
     }
 
-    public String getTechnicalmore() {
-        return technicalmore;
+    public String getpositionmore() {
+        return positionmore;
     }
 
-    public void setTechnicalmore(String technicalmore) {
-        this.technicalmore = technicalmore == null ? null : technicalmore.trim();
+    public void setpositionmore(String positionmore) {
+        this.positionmore = positionmore == null ? null : positionmore.trim();
     }
 
     public String getAcademichighestmore() {
@@ -831,7 +829,7 @@ public class Candidate extends BaseBean implements Serializable {
         sb.append(", birthprovince=").append(birthprovince);
         sb.append(", birthcity=").append(birthcity);
         sb.append(", birthdistrict=").append(birthdistrict);
-        sb.append(", technical=").append(technical);
+        sb.append(", position=").append(position);
         sb.append(", subject=").append(subject);
         sb.append(", subjectfirst=").append(subjectfirst);
         sb.append(", subjectsecond=").append(subjectsecond);
@@ -869,7 +867,7 @@ public class Candidate extends BaseBean implements Serializable {
         sb.append(", iselected=").append(iselected);
         sb.append(", nominationacademicianlist=").append(nominationacademicianlist);
         sb.append(", unacceptreason=").append(unacceptreason);
-        sb.append(", technicalmore=").append(technicalmore);
+        sb.append(", positionmore=").append(positionmore);
         sb.append(", academichighestmore=").append(academichighestmore);
         sb.append(", degreehighestmore=").append(degreehighestmore);
         sb.append(", recommendeddepartmentname=").append(recommendeddepartmentname);

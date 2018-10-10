@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaereviewresultMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caereviewresult">
+    <id column="reviewResultId" jdbcType="VARCHAR" property="reviewresultid" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="errorReason" jdbcType="VARCHAR" property="errorreason" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="recepitNumber" jdbcType="VARCHAR" property="recepitnumber" />
+    <result column="reviewSureId" jdbcType="VARCHAR" property="reviewsureid" />
+    <result column="createBy" jdbcType="VARCHAR" property="createby" />
+    <result column="updateBy" jdbcType="VARCHAR" property="updateby" />
+    <result column="createDt" jdbcType="TIMESTAMP" property="createdt" />
+    <result column="updateDt" jdbcType="TIMESTAMP" property="updatedt" />
+    <result column="orgId" jdbcType="VARCHAR" property="orgid" />
+    <result column="compId" jdbcType="VARCHAR" property="compid" />
+    <result column="candidateId" jdbcType="VARCHAR" property="candidateid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caereviewresult
+    where reviewResultId = #{reviewresultid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caereviewresult">
+    insert into caereviewresult (reviewResultId, `status`, errorReason, 
+      `name`, recepitNumber, reviewSureId, 
+      createBy, updateBy, createDt, 
+      updateDt, orgId, compId, 
+      candidateId)
+    values (#{reviewresultid,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{errorreason,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{recepitnumber,jdbcType=VARCHAR}, #{reviewsureid,jdbcType=VARCHAR}, 
+      #{createby,jdbcType=VARCHAR}, #{updateby,jdbcType=VARCHAR}, #{createdt,jdbcType=TIMESTAMP}, 
+      #{updatedt,jdbcType=TIMESTAMP}, #{orgid,jdbcType=VARCHAR}, #{compid,jdbcType=VARCHAR}, 
+      #{candidateid,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caereviewresult">
+    update caereviewresult
+    set `status` = #{status,jdbcType=INTEGER},
+      errorReason = #{errorreason,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      recepitNumber = #{recepitnumber,jdbcType=VARCHAR},
+      reviewSureId = #{reviewsureid,jdbcType=VARCHAR},
+      createBy = #{createby,jdbcType=VARCHAR},
+      updateBy = #{updateby,jdbcType=VARCHAR},
+      createDt = #{createdt,jdbcType=TIMESTAMP},
+      updateDt = #{updatedt,jdbcType=TIMESTAMP},
+      orgId = #{orgid,jdbcType=VARCHAR},
+      compId = #{compid,jdbcType=VARCHAR},
+      candidateId = #{candidateid,jdbcType=VARCHAR}
+    where reviewResultId = #{reviewresultid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select reviewResultId, `status`, errorReason, `name`, recepitNumber, reviewSureId, 
+    createBy, updateBy, createDt, updateDt, orgId, compId, candidateId
+    from caereviewresult
+    where reviewResultId = #{reviewresultid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select reviewResultId, `status`, errorReason, `name`, recepitNumber, reviewSureId, 
+    createBy, updateBy, createDt, updateDt, orgId, compId, candidateId
+    from caereviewresult
+  </select>
+</mapper>

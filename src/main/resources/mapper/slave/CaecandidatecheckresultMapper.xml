@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaecandidatecheckresultMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caecandidatecheckresult">
+    <id column="candidateCheckResultId" jdbcType="VARCHAR" property="candidatecheckresultid" />
+    <result column="recepitNumber" jdbcType="VARCHAR" property="recepitnumber" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="errorReason" jdbcType="VARCHAR" property="errorreason" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caecandidatecheckresult
+    where candidateCheckResultId = #{candidatecheckresultid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caecandidatecheckresult">
+    insert into caecandidatecheckresult (candidateCheckResultId, recepitNumber, 
+      `name`, errorReason)
+    values (#{candidatecheckresultid,jdbcType=VARCHAR}, #{recepitnumber,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{errorreason,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caecandidatecheckresult">
+    update caecandidatecheckresult
+    set recepitNumber = #{recepitnumber,jdbcType=VARCHAR},
+      `name` = #{name,jdbcType=VARCHAR},
+      errorReason = #{errorreason,jdbcType=VARCHAR}
+    where candidateCheckResultId = #{candidatecheckresultid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select candidateCheckResultId, recepitNumber, `name`, errorReason
+    from caecandidatecheckresult
+    where candidateCheckResultId = #{candidatecheckresultid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select candidateCheckResultId, recepitNumber, `name`, errorReason
+    from caecandidatecheckresult
+  </select>
+</mapper>

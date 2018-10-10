@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaedictionaryministriesMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caedictionaryministries">
+    <id column="ministriesId" jdbcType="VARCHAR" property="ministriesid" />
+    <result column="ministriesnumber" jdbcType="INTEGER" property="ministriesnumber" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="isEffective" jdbcType="VARCHAR" property="iseffective" />
+    <result column="startTime" jdbcType="VARCHAR" property="starttime" />
+    <result column="endTime" jdbcType="VARCHAR" property="endtime" />
+    <result column="unitDepartmentId" jdbcType="VARCHAR" property="unitdepartmentid" />
+    <result column="nominationId" jdbcType="VARCHAR" property="nominationid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caedictionaryministries
+    where ministriesId = #{ministriesid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caedictionaryministries">
+    insert into caedictionaryministries (ministriesId, ministriesnumber, `name`, 
+      isEffective, startTime, endTime, 
+      unitDepartmentId, nominationId)
+    values (#{ministriesid,jdbcType=VARCHAR}, #{ministriesnumber,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{iseffective,jdbcType=VARCHAR}, #{starttime,jdbcType=VARCHAR}, #{endtime,jdbcType=VARCHAR}, 
+      #{unitdepartmentid,jdbcType=VARCHAR}, #{nominationid,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caedictionaryministries">
+    update caedictionaryministries
+    set ministriesnumber = #{ministriesnumber,jdbcType=INTEGER},
+      `name` = #{name,jdbcType=VARCHAR},
+      isEffective = #{iseffective,jdbcType=VARCHAR},
+      startTime = #{starttime,jdbcType=VARCHAR},
+      endTime = #{endtime,jdbcType=VARCHAR},
+      unitDepartmentId = #{unitdepartmentid,jdbcType=VARCHAR},
+      nominationId = #{nominationid,jdbcType=VARCHAR}
+    where ministriesId = #{ministriesid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select ministriesId, ministriesnumber, `name`, isEffective, startTime, endTime, unitDepartmentId, 
+    nominationId
+    from caedictionaryministries
+    where ministriesId = #{ministriesid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select ministriesId, ministriesnumber, `name`, isEffective, startTime, endTime, unitDepartmentId, 
+    nominationId
+    from caedictionaryministries
+  </select>
+</mapper>

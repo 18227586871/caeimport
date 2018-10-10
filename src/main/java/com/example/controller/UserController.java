@@ -8,6 +8,7 @@ import com.example.bean.UserBean;
 import com.example.common.Common;
 import com.example.service.UserService;
 
+//测试方法
 @RestController
 public class UserController {
 

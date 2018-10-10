@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaeadditionalinformationMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caeadditionalinformation">
+    <id column="additionalInformationId" jdbcType="VARCHAR" property="additionalinformationid" />
+    <result column="opinionBarCode" jdbcType="VARCHAR" property="opinionbarcode" />
+    <result column="selectedYear" jdbcType="VARCHAR" property="selectedyear" />
+    <result column="candidateUUID" jdbcType="VARCHAR" property="candidateuuid" />
+    <result column="candidateId" jdbcType="VARCHAR" property="candidateid" />
+    <result column="photo" jdbcType="VARCHAR" property="photo" />
+    <result column="recommendedUnitOpinion" jdbcType="VARCHAR" property="recommendedunitopinion" />
+    <result column="majorDocument" jdbcType="VARCHAR" property="majordocument" />
+    <result column="recommendedBarCode" jdbcType="VARCHAR" property="recommendedbarcode" />
+    <result column="selectBarCode" jdbcType="VARCHAR" property="selectbarcode" />
+    <result column="nominationReviewOpinion" jdbcType="VARCHAR" property="nominationreviewopinion" />
+    <result column="unitAuditOpinion" jdbcType="VARCHAR" property="unitauditopinion" />
+    <result column="nominateUnitOpinion" jdbcType="VARCHAR" property="nominateunitopinion" />
+    <result column="unitBarCode" jdbcType="VARCHAR" property="unitbarcode" />
+    <result column="selectDepartmentComments" jdbcType="VARCHAR" property="selectdepartmentcomments" />
+    <result column="createBy" jdbcType="VARCHAR" property="createby" />
+    <result column="updateBy" jdbcType="VARCHAR" property="updateby" />
+    <result column="createDt" jdbcType="TIMESTAMP" property="createdt" />
+    <result column="updateDt" jdbcType="TIMESTAMP" property="updatedt" />
+    <result column="orgId" jdbcType="VARCHAR" property="orgid" />
+    <result column="compId" jdbcType="VARCHAR" property="compid" />
+    <result column="nominationAcademicians" jdbcType="VARCHAR" property="nominationacademicians" />
+    <result column="academicianId" jdbcType="VARCHAR" property="academicianid" />
+    <result column="academicianUUID" jdbcType="VARCHAR" property="academicianuuid" />
+    <result column="contributionDesc" jdbcType="VARCHAR" property="contributiondesc" />
+    <result column="attachmentLevel" jdbcType="VARCHAR" property="attachmentlevel" />
+    <result column="attachmentsNumber" jdbcType="VARCHAR" property="attachmentsnumber" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caeadditionalinformation
+    where additionalInformationId = #{additionalinformationid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caeadditionalinformation">
+    insert into caeadditionalinformation (additionalInformationId, opinionBarCode, 
+      selectedYear, candidateUUID, candidateId, 
+      photo, recommendedUnitOpinion, majorDocument, 
+      recommendedBarCode, selectBarCode, nominationReviewOpinion, 
+      unitAuditOpinion, nominateUnitOpinion, 
+      unitBarCode, selectDepartmentComments, 
+      createBy, updateBy, createDt, 
+      updateDt, orgId, compId, 
+      nominationAcademicians, academicianId, 
+      academicianUUID, contributionDesc, attachmentLevel, 
+      attachmentsNumber)
+    values (#{additionalinformationid,jdbcType=VARCHAR}, #{opinionbarcode,jdbcType=VARCHAR}, 
+      #{selectedyear,jdbcType=VARCHAR}, #{candidateuuid,jdbcType=VARCHAR}, #{candidateid,jdbcType=VARCHAR}, 
+      #{photo,jdbcType=VARCHAR}, #{recommendedunitopinion,jdbcType=VARCHAR}, #{majordocument,jdbcType=VARCHAR}, 
+      #{recommendedbarcode,jdbcType=VARCHAR}, #{selectbarcode,jdbcType=VARCHAR}, #{nominationreviewopinion,jdbcType=VARCHAR}, 
+      #{unitauditopinion,jdbcType=VARCHAR}, #{nominateunitopinion,jdbcType=VARCHAR}, 
+      #{unitbarcode,jdbcType=VARCHAR}, #{selectdepartmentcomments,jdbcType=VARCHAR}, 
+      #{createby,jdbcType=VARCHAR}, #{updateby,jdbcType=VARCHAR}, #{createdt,jdbcType=TIMESTAMP}, 
+      #{updatedt,jdbcType=TIMESTAMP}, #{orgid,jdbcType=VARCHAR}, #{compid,jdbcType=VARCHAR}, 
+      #{nominationacademicians,jdbcType=VARCHAR}, #{academicianid,jdbcType=VARCHAR}, 
+      #{academicianuuid,jdbcType=VARCHAR}, #{contributiondesc,jdbcType=VARCHAR}, #{attachmentlevel,jdbcType=VARCHAR}, 
+      #{attachmentsnumber,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caeadditionalinformation">
+    update caeadditionalinformation
+    set opinionBarCode = #{opinionbarcode,jdbcType=VARCHAR},
+      selectedYear = #{selectedyear,jdbcType=VARCHAR},
+      candidateUUID = #{candidateuuid,jdbcType=VARCHAR},
+      candidateId = #{candidateid,jdbcType=VARCHAR},
+      photo = #{photo,jdbcType=VARCHAR},
+      recommendedUnitOpinion = #{recommendedunitopinion,jdbcType=VARCHAR},
+      majorDocument = #{majordocument,jdbcType=VARCHAR},
+      recommendedBarCode = #{recommendedbarcode,jdbcType=VARCHAR},
+      selectBarCode = #{selectbarcode,jdbcType=VARCHAR},
+      nominationReviewOpinion = #{nominationreviewopinion,jdbcType=VARCHAR},
+      unitAuditOpinion = #{unitauditopinion,jdbcType=VARCHAR},
+      nominateUnitOpinion = #{nominateunitopinion,jdbcType=VARCHAR},
+      unitBarCode = #{unitbarcode,jdbcType=VARCHAR},
+      selectDepartmentComments = #{selectdepartmentcomments,jdbcType=VARCHAR},
+      createBy = #{createby,jdbcType=VARCHAR},
+      updateBy = #{updateby,jdbcType=VARCHAR},
+      createDt = #{createdt,jdbcType=TIMESTAMP},
+      updateDt = #{updatedt,jdbcType=TIMESTAMP},
+      orgId = #{orgid,jdbcType=VARCHAR},
+      compId = #{compid,jdbcType=VARCHAR},
+      nominationAcademicians = #{nominationacademicians,jdbcType=VARCHAR},
+      academicianId = #{academicianid,jdbcType=VARCHAR},
+      academicianUUID = #{academicianuuid,jdbcType=VARCHAR},
+      contributionDesc = #{contributiondesc,jdbcType=VARCHAR},
+      attachmentLevel = #{attachmentlevel,jdbcType=VARCHAR},
+      attachmentsNumber = #{attachmentsnumber,jdbcType=VARCHAR}
+    where additionalInformationId = #{additionalinformationid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select additionalInformationId, opinionBarCode, selectedYear, candidateUUID, candidateId, 
+    photo, recommendedUnitOpinion, majorDocument, recommendedBarCode, selectBarCode, 
+    nominationReviewOpinion, unitAuditOpinion, nominateUnitOpinion, unitBarCode, selectDepartmentComments, 
+    createBy, updateBy, createDt, updateDt, orgId, compId, nominationAcademicians, academicianId, 
+    academicianUUID, contributionDesc, attachmentLevel, attachmentsNumber
+    from caeadditionalinformation
+    where additionalInformationId = #{additionalinformationid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select additionalInformationId, opinionBarCode, selectedYear, candidateUUID, candidateId, 
+    photo, recommendedUnitOpinion, majorDocument, recommendedBarCode, selectBarCode, 
+    nominationReviewOpinion, unitAuditOpinion, nominateUnitOpinion, unitBarCode, selectDepartmentComments, 
+    createBy, updateBy, createDt, updateDt, orgId, compId, nominationAcademicians, academicianId, 
+    academicianUUID, contributionDesc, attachmentLevel, attachmentsNumber
+    from caeadditionalinformation
+  </select>
+</mapper>

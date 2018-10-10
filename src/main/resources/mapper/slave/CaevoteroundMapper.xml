@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaevoteroundMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caevoteround">
+    <id column="voteRoundId" jdbcType="VARCHAR" property="voteroundid" />
+    <result column="roundTitle" jdbcType="VARCHAR" property="roundtitle" />
+    <result column="selectYear" jdbcType="DATE" property="selectyear" />
+    <result column="departmentId" jdbcType="VARCHAR" property="departmentid" />
+    <result column="roundSn" jdbcType="INTEGER" property="roundsn" />
+    <result column="throughNum" jdbcType="INTEGER" property="throughnum" />
+    <result column="voteRoundStatus" jdbcType="INTEGER" property="voteroundstatus" />
+    <result column="createBy" jdbcType="VARCHAR" property="createby" />
+    <result column="updateBy" jdbcType="VARCHAR" property="updateby" />
+    <result column="createDt" jdbcType="TIMESTAMP" property="createdt" />
+    <result column="updateDt" jdbcType="TIMESTAMP" property="updatedt" />
+    <result column="orgId" jdbcType="VARCHAR" property="orgid" />
+    <result column="compId" jdbcType="VARCHAR" property="compid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caevoteround
+    where voteRoundId = #{voteroundid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caevoteround">
+    insert into caevoteround (voteRoundId, roundTitle, selectYear, 
+      departmentId, roundSn, throughNum, 
+      voteRoundStatus, createBy, updateBy, 
+      createDt, updateDt, orgId, 
+      compId)
+    values (#{voteroundid,jdbcType=VARCHAR}, #{roundtitle,jdbcType=VARCHAR}, #{selectyear,jdbcType=DATE}, 
+      #{departmentid,jdbcType=VARCHAR}, #{roundsn,jdbcType=INTEGER}, #{throughnum,jdbcType=INTEGER}, 
+      #{voteroundstatus,jdbcType=INTEGER}, #{createby,jdbcType=VARCHAR}, #{updateby,jdbcType=VARCHAR}, 
+      #{createdt,jdbcType=TIMESTAMP}, #{updatedt,jdbcType=TIMESTAMP}, #{orgid,jdbcType=VARCHAR}, 
+      #{compid,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caevoteround">
+    update caevoteround
+    set roundTitle = #{roundtitle,jdbcType=VARCHAR},
+      selectYear = #{selectyear,jdbcType=DATE},
+      departmentId = #{departmentid,jdbcType=VARCHAR},
+      roundSn = #{roundsn,jdbcType=INTEGER},
+      throughNum = #{throughnum,jdbcType=INTEGER},
+      voteRoundStatus = #{voteroundstatus,jdbcType=INTEGER},
+      createBy = #{createby,jdbcType=VARCHAR},
+      updateBy = #{updateby,jdbcType=VARCHAR},
+      createDt = #{createdt,jdbcType=TIMESTAMP},
+      updateDt = #{updatedt,jdbcType=TIMESTAMP},
+      orgId = #{orgid,jdbcType=VARCHAR},
+      compId = #{compid,jdbcType=VARCHAR}
+    where voteRoundId = #{voteroundid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select voteRoundId, roundTitle, selectYear, departmentId, roundSn, throughNum, voteRoundStatus, 
+    createBy, updateBy, createDt, updateDt, orgId, compId
+    from caevoteround
+    where voteRoundId = #{voteroundid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select voteRoundId, roundTitle, selectYear, departmentId, roundSn, throughNum, voteRoundStatus, 
+    createBy, updateBy, createDt, updateDt, orgId, compId
+    from caevoteround
+  </select>
+</mapper>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaemajoreducationMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caemajoreducation">
+    <id column="majorEducationId" jdbcType="VARCHAR" property="majoreducationid" />
+    <result column="selectedYear" jdbcType="VARCHAR" property="selectedyear" />
+    <result column="candidateId" jdbcType="VARCHAR" property="candidateid" />
+    <result column="candidateUUID" jdbcType="VARCHAR" property="candidateuuid" />
+    <result column="majorEducationSn" jdbcType="INTEGER" property="majoreducationsn" />
+    <result column="startTime" jdbcType="VARCHAR" property="starttime" />
+    <result column="endTime" jdbcType="VARCHAR" property="endtime" />
+    <result column="school" jdbcType="VARCHAR" property="school" />
+    <result column="major" jdbcType="VARCHAR" property="major" />
+    <result column="degree" jdbcType="VARCHAR" property="degree" />
+    <result column="academic" jdbcType="VARCHAR" property="academic" />
+    <result column="academicianId" jdbcType="VARCHAR" property="academicianid" />
+    <result column="academicianUUID" jdbcType="VARCHAR" property="academicianuuid" />
+    <result column="originalDegree" jdbcType="VARCHAR" property="originaldegree" />
+    <result column="originalAcademic" jdbcType="VARCHAR" property="originalacademic" />
+    <result column="otherDegree" jdbcType="VARCHAR" property="otherdegree" />
+    <result column="otherAcademic" jdbcType="VARCHAR" property="otheracademic" />
+    <result column="country" jdbcType="VARCHAR" property="country" />
+    <result column="createBy" jdbcType="VARCHAR" property="createby" />
+    <result column="updateBy" jdbcType="VARCHAR" property="updateby" />
+    <result column="createDt" jdbcType="TIMESTAMP" property="createdt" />
+    <result column="updateDt" jdbcType="TIMESTAMP" property="updatedt" />
+    <result column="orgId" jdbcType="VARCHAR" property="orgid" />
+    <result column="compId" jdbcType="VARCHAR" property="compid" />
+    <result column="majorEducation" jdbcType="VARCHAR" property="majoreducation" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caemajoreducation
+    where majorEducationId = #{majoreducationid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caemajoreducation">
+    insert into caemajoreducation (majorEducationId, selectedYear, candidateId, 
+      candidateUUID, majorEducationSn, startTime, 
+      endTime, school, major, 
+      `degree`, academic, academicianId, 
+      academicianUUID, originalDegree, originalAcademic, 
+      otherDegree, otherAcademic, country, 
+      createBy, updateBy, createDt, 
+      updateDt, orgId, compId, 
+      majorEducation)
+    values (#{majoreducationid,jdbcType=VARCHAR}, #{selectedyear,jdbcType=VARCHAR}, #{candidateid,jdbcType=VARCHAR}, 
+      #{candidateuuid,jdbcType=VARCHAR}, #{majoreducationsn,jdbcType=INTEGER}, #{starttime,jdbcType=VARCHAR}, 
+      #{endtime,jdbcType=VARCHAR}, #{school,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR}, 
+      #{degree,jdbcType=VARCHAR}, #{academic,jdbcType=VARCHAR}, #{academicianid,jdbcType=VARCHAR}, 
+      #{academicianuuid,jdbcType=VARCHAR}, #{originaldegree,jdbcType=VARCHAR}, #{originalacademic,jdbcType=VARCHAR}, 
+      #{otherdegree,jdbcType=VARCHAR}, #{otheracademic,jdbcType=VARCHAR}, #{country,jdbcType=VARCHAR}, 
+      #{createby,jdbcType=VARCHAR}, #{updateby,jdbcType=VARCHAR}, #{createdt,jdbcType=TIMESTAMP}, 
+      #{updatedt,jdbcType=TIMESTAMP}, #{orgid,jdbcType=VARCHAR}, #{compid,jdbcType=VARCHAR}, 
+      #{majoreducation,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caemajoreducation">
+    update caemajoreducation
+    set selectedYear = #{selectedyear,jdbcType=VARCHAR},
+      candidateId = #{candidateid,jdbcType=VARCHAR},
+      candidateUUID = #{candidateuuid,jdbcType=VARCHAR},
+      majorEducationSn = #{majoreducationsn,jdbcType=INTEGER},
+      startTime = #{starttime,jdbcType=VARCHAR},
+      endTime = #{endtime,jdbcType=VARCHAR},
+      school = #{school,jdbcType=VARCHAR},
+      major = #{major,jdbcType=VARCHAR},
+      `degree` = #{degree,jdbcType=VARCHAR},
+      academic = #{academic,jdbcType=VARCHAR},
+      academicianId = #{academicianid,jdbcType=VARCHAR},
+      academicianUUID = #{academicianuuid,jdbcType=VARCHAR},
+      originalDegree = #{originaldegree,jdbcType=VARCHAR},
+      originalAcademic = #{originalacademic,jdbcType=VARCHAR},
+      otherDegree = #{otherdegree,jdbcType=VARCHAR},
+      otherAcademic = #{otheracademic,jdbcType=VARCHAR},
+      country = #{country,jdbcType=VARCHAR},
+      createBy = #{createby,jdbcType=VARCHAR},
+      updateBy = #{updateby,jdbcType=VARCHAR},
+      createDt = #{createdt,jdbcType=TIMESTAMP},
+      updateDt = #{updatedt,jdbcType=TIMESTAMP},
+      orgId = #{orgid,jdbcType=VARCHAR},
+      compId = #{compid,jdbcType=VARCHAR},
+      majorEducation = #{majoreducation,jdbcType=VARCHAR}
+    where majorEducationId = #{majoreducationid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select majorEducationId, selectedYear, candidateId, candidateUUID, majorEducationSn, 
+    startTime, endTime, school, major, `degree`, academic, academicianId, academicianUUID, 
+    originalDegree, originalAcademic, otherDegree, otherAcademic, country, createBy, 
+    updateBy, createDt, updateDt, orgId, compId, majorEducation
+    from caemajoreducation
+    where majorEducationId = #{majoreducationid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select majorEducationId, selectedYear, candidateId, candidateUUID, majorEducationSn, 
+    startTime, endTime, school, major, `degree`, academic, academicianId, academicianUUID, 
+    originalDegree, originalAcademic, otherDegree, otherAcademic, country, createBy, 
+    updateBy, createDt, updateDt, orgId, compId, majorEducation
+    from caemajoreducation
+  </select>
+</mapper>

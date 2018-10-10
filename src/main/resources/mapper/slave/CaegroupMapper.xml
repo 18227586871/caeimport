@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaegroupMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caegroup">
+    <id column="groupId" jdbcType="VARCHAR" property="groupid" />
+    <result column="createBy" jdbcType="VARCHAR" property="createby" />
+    <result column="updateBy" jdbcType="VARCHAR" property="updateby" />
+    <result column="createDt" jdbcType="TIMESTAMP" property="createdt" />
+    <result column="updateDt" jdbcType="TIMESTAMP" property="updatedt" />
+    <result column="orgId" jdbcType="VARCHAR" property="orgid" />
+    <result column="compId" jdbcType="VARCHAR" property="compid" />
+    <result column="selectedYear" jdbcType="VARCHAR" property="selectedyear" />
+    <result column="departmentId" jdbcType="VARCHAR" property="departmentid" />
+    <result column="groupSn" jdbcType="INTEGER" property="groupsn" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="amountPeople" jdbcType="INTEGER" property="amountpeople" />
+    <result column="groupPid" jdbcType="VARCHAR" property="grouppid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caegroup
+    where groupId = #{groupid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caegroup">
+    insert into caegroup (groupId, createBy, updateBy, 
+      createDt, updateDt, orgId, 
+      compId, selectedYear, departmentId, 
+      groupSn, `name`, amountPeople, 
+      groupPid)
+    values (#{groupid,jdbcType=VARCHAR}, #{createby,jdbcType=VARCHAR}, #{updateby,jdbcType=VARCHAR}, 
+      #{createdt,jdbcType=TIMESTAMP}, #{updatedt,jdbcType=TIMESTAMP}, #{orgid,jdbcType=VARCHAR}, 
+      #{compid,jdbcType=VARCHAR}, #{selectedyear,jdbcType=VARCHAR}, #{departmentid,jdbcType=VARCHAR}, 
+      #{groupsn,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{amountpeople,jdbcType=INTEGER}, 
+      #{grouppid,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caegroup">
+    update caegroup
+    set createBy = #{createby,jdbcType=VARCHAR},
+      updateBy = #{updateby,jdbcType=VARCHAR},
+      createDt = #{createdt,jdbcType=TIMESTAMP},
+      updateDt = #{updatedt,jdbcType=TIMESTAMP},
+      orgId = #{orgid,jdbcType=VARCHAR},
+      compId = #{compid,jdbcType=VARCHAR},
+      selectedYear = #{selectedyear,jdbcType=VARCHAR},
+      departmentId = #{departmentid,jdbcType=VARCHAR},
+      groupSn = #{groupsn,jdbcType=INTEGER},
+      `name` = #{name,jdbcType=VARCHAR},
+      amountPeople = #{amountpeople,jdbcType=INTEGER},
+      groupPid = #{grouppid,jdbcType=VARCHAR}
+    where groupId = #{groupid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select groupId, createBy, updateBy, createDt, updateDt, orgId, compId, selectedYear, 
+    departmentId, groupSn, `name`, amountPeople, groupPid
+    from caegroup
+    where groupId = #{groupid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select groupId, createBy, updateBy, createDt, updateDt, orgId, compId, selectedYear, 
+    departmentId, groupSn, `name`, amountPeople, groupPid
+    from caegroup
+  </select>
+</mapper>

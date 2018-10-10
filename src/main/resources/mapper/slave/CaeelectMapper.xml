@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.slave.dao.CaeelectMapper">
+  <resultMap id="BaseResultMap" type="com.example.slave.entity.Caeelect">
+    <id column="electId" jdbcType="VARCHAR" property="electid" />
+    <result column="electTitle" jdbcType="VARCHAR" property="electtitle" />
+    <result column="groupId" jdbcType="VARCHAR" property="groupid" />
+    <result column="departmentId" jdbcType="VARCHAR" property="departmentid" />
+    <result column="voteId" jdbcType="VARCHAR" property="voteid" />
+    <result column="voteRoundId" jdbcType="VARCHAR" property="voteroundid" />
+    <result column="electStatus" jdbcType="INTEGER" property="electstatus" />
+    <result column="createBy" jdbcType="VARCHAR" property="createby" />
+    <result column="updateBy" jdbcType="VARCHAR" property="updateby" />
+    <result column="createDt" jdbcType="TIMESTAMP" property="createdt" />
+    <result column="updateDt" jdbcType="TIMESTAMP" property="updatedt" />
+    <result column="orgId" jdbcType="VARCHAR" property="orgid" />
+    <result column="compId" jdbcType="VARCHAR" property="compid" />
+  </resultMap>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from caeelect
+    where electId = #{electid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.example.slave.entity.Caeelect">
+    insert into caeelect (electId, electTitle, groupId, 
+      departmentId, voteId, voteRoundId, 
+      electStatus, createBy, updateBy, 
+      createDt, updateDt, orgId, 
+      compId)
+    values (#{electid,jdbcType=VARCHAR}, #{electtitle,jdbcType=VARCHAR}, #{groupid,jdbcType=VARCHAR}, 
+      #{departmentid,jdbcType=VARCHAR}, #{voteid,jdbcType=VARCHAR}, #{voteroundid,jdbcType=VARCHAR}, 
+      #{electstatus,jdbcType=INTEGER}, #{createby,jdbcType=VARCHAR}, #{updateby,jdbcType=VARCHAR}, 
+      #{createdt,jdbcType=TIMESTAMP}, #{updatedt,jdbcType=TIMESTAMP}, #{orgid,jdbcType=VARCHAR}, 
+      #{compid,jdbcType=VARCHAR})
+  </insert>
+  <update id="updateByPrimaryKey" parameterType="com.example.slave.entity.Caeelect">
+    update caeelect
+    set electTitle = #{electtitle,jdbcType=VARCHAR},
+      groupId = #{groupid,jdbcType=VARCHAR},
+      departmentId = #{departmentid,jdbcType=VARCHAR},
+      voteId = #{voteid,jdbcType=VARCHAR},
+      voteRoundId = #{voteroundid,jdbcType=VARCHAR},
+      electStatus = #{electstatus,jdbcType=INTEGER},
+      createBy = #{createby,jdbcType=VARCHAR},
+      updateBy = #{updateby,jdbcType=VARCHAR},
+      createDt = #{createdt,jdbcType=TIMESTAMP},
+      updateDt = #{updatedt,jdbcType=TIMESTAMP},
+      orgId = #{orgid,jdbcType=VARCHAR},
+      compId = #{compid,jdbcType=VARCHAR}
+    where electId = #{electid,jdbcType=VARCHAR}
+  </update>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select electId, electTitle, groupId, departmentId, voteId, voteRoundId, electStatus, 
+    createBy, updateBy, createDt, updateDt, orgId, compId
+    from caeelect
+    where electId = #{electid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectAll" resultMap="BaseResultMap">
+    select electId, electTitle, groupId, departmentId, voteId, voteRoundId, electStatus, 
+    createBy, updateBy, createDt, updateDt, orgId, compId
+    from caeelect
+  </select>
+</mapper>

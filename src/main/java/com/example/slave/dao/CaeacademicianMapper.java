@@ -8,6 +8,8 @@ public interface CaeacademicianMapper {
 
     int insert(Caeacademician record);
 
+    int insertBatch(List<Caeacademician> academicianList);
+
     Caeacademician selectByPrimaryKey(String academicianid);
 
     List<Caeacademician> selectAll();

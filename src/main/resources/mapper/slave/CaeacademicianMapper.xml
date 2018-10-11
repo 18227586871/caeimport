@@ -177,4 +177,47 @@
     compId, recommendName, recommendLeader, isReview
     from caeacademician
   </select>
+
+    <insert id="insertBatch" parameterType="com.example.slave.entity.Caeacademician">
+        insert into caeacademician (academicianId, academicianUUID, selectedYear,
+        createDt, createBy, updateDt,
+        updateBy, departmentNumber, departmentAcrossNumber,
+        isDead, deathDate, isRecall,
+        academicianName, academicianLastNameSpelling,
+        academicianFirstNameSpelling, certificateType,
+        certificateNumber, gender, ethnic,
+        birthday, age, originCountry,
+        originProvince, originCity, originDistrict,
+        birthCountry, birthProvince, birthCity,
+        birthDistrict, technical, subject,
+        subjectFirst, subjectSecond, subjectThird,
+        professional, degreeFirst, academicFirst,
+        degreeHighest, academicHighest, isPostdoctoralExperience,
+        academyScienceHistory, engineeringAcademyHistory,
+        candidateID, importBy, importDt,
+        academicianNumber, orgId, compId,
+        recommendName, recommendLeader, isReview
+        ) values
+        <foreach collection="list" item="academician" separator=",">
+            (#{academician.academicianid,jdbcType=VARCHAR}, #{academician.academicianuuid,jdbcType=VARCHAR}, #{academician.selectedyear,jdbcType=VARCHAR},
+            #{academician.createdt,jdbcType=TIMESTAMP}, #{academician.createby,jdbcType=VARCHAR}, #{academician.updatedt,jdbcType=TIMESTAMP},
+            #{academician.updateby,jdbcType=VARCHAR}, #{academician.departmentnumber,jdbcType=VARCHAR}, #{academician.departmentacrossnumber,jdbcType=VARCHAR},
+            #{academician.isdead,jdbcType=INTEGER}, #{academician.deathdate,jdbcType=VARCHAR}, #{academician.isrecall,jdbcType=INTEGER},
+            #{academician.academicianname,jdbcType=VARCHAR}, #{academician.academicianlastnamespelling,jdbcType=VARCHAR},
+            #{academician.academicianfirstnamespelling,jdbcType=VARCHAR}, #{academician.certificatetype,jdbcType=VARCHAR},
+            #{academician.certificatenumber,jdbcType=VARCHAR}, #{academician.gender,jdbcType=INTEGER}, #{academician.ethnic,jdbcType=INTEGER},
+            #{academician.birthday,jdbcType=DATE}, #{academician.age,jdbcType=INTEGER}, #{academician.origincountry,jdbcType=INTEGER},
+            #{academician.originprovince,jdbcType=INTEGER}, #{academician.origincity,jdbcType=VARCHAR}, #{academician.origindistrict,jdbcType=INTEGER},
+            #{academician.birthcountry,jdbcType=INTEGER}, #{academician.birthprovince,jdbcType=INTEGER}, #{academician.birthcity,jdbcType=VARCHAR},
+            #{academician.birthdistrict,jdbcType=INTEGER}, #{academician.technical,jdbcType=INTEGER}, #{academician.subject,jdbcType=INTEGER},
+            #{academician.subjectfirst,jdbcType=INTEGER}, #{academician.subjectsecond,jdbcType=INTEGER}, #{academician.subjectthird,jdbcType=INTEGER},
+            #{academician.professional,jdbcType=VARCHAR}, #{academician.degreefirst,jdbcType=INTEGER}, #{academician.academicfirst,jdbcType=INTEGER},
+            #{academician.degreehighest,jdbcType=INTEGER}, #{academician.academichighest,jdbcType=INTEGER}, #{academician.ispostdoctoralexperience,jdbcType=VARCHAR},
+            #{academician.academysciencehistory,jdbcType=VARCHAR}, #{academician.engineeringacademyhistory,jdbcType=VARCHAR},
+            #{academician.candidateid,jdbcType=VARCHAR}, #{academician.importby,jdbcType=VARCHAR}, #{academician.importdt,jdbcType=TIMESTAMP},
+            #{academician.academiciannumber,jdbcType=INTEGER}, #{academician.orgid,jdbcType=VARCHAR}, #{academician.compid,jdbcType=VARCHAR},
+            #{academician.recommendname,jdbcType=VARCHAR}, #{academician.recommendleader,jdbcType=VARCHAR}, #{academician.isreview,jdbcType=INTEGER}
+            )
+        </foreach>
+    </insert>
 </mapper>

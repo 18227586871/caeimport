@@ -9,8 +9,6 @@
 	    </encoder>
     </appender>
 
-	
-	
 	<appender name="sqlAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<file>logs/mybatisStatement.log</file>
 		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -21,15 +19,11 @@
 	    </encoder>	 
 	</appender>
 	
-	
-	
     <logger name="zl.mapper" level="DEBUG">
     	<appender-ref ref="sqlAppender" />
     </logger>
     
-    
 	<root level="info">
 		<appender-ref ref="FILE"/>
 	</root>
-	
 </configuration>

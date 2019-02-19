@@ -1,0 +1,6 @@
+server:
+  port: 8080
+mybatis:
+  mapper-locations: classpath:mapper/*/*Mapper.xml
+logging:
+  level: debug

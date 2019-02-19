@@ -1,17 +1,13 @@
 package com.example.controller;
 
 import com.example.bean.BaseBean;
-import com.example.common.Common;
 import com.example.master.entity.Candidate;
-import com.example.master.entity.Candidateadditionalinformation;
-import com.example.service.CandidateService;
 import com.example.service.impl.*;
-import com.example.slave.entity.Caecandidate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 import java.util.List;
-import java.util.spi.CalendarNameProvider;
 
 @RestController
 public class CandidateController {

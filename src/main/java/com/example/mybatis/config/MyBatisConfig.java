@@ -31,27 +31,27 @@ import java.util.Properties;
 public class MyBatisConfig {
 	@Autowired
 	private Environment env;
-	@Autowired MybatisSpringPageInterceptor inteceptor;
+	@Autowired MybatisSpringPageInterceptor interceptor;
 
 	/**
 	 * 创建数据源(数据源的名称：方法名可以取为XXXDataSource(),XXX为数据库名称,该名称也就是数据源的名称)
 	 */
 	@Bean
-	public DataSource operateDataSource() throws Exception {
+	public DataSource sourceDataSource() throws Exception {
 		Properties props = new Properties();
-		props.put("driverClassName", env.getProperty("operate.datasource.driver-class-name"));
-		props.put("url", env.getProperty("operate.datasource.url"));
-		props.put("username", env.getProperty("operate.datasource.username"));
-		props.put("password", env.getProperty("operate.datasource.password"));
+		props.put("driverClassName", env.getProperty("source.datasource.driver-class-name"));
+		props.put("url", env.getProperty("source.datasource.url"));
+		props.put("username", env.getProperty("source.datasource.username"));
+		props.put("password", env.getProperty("source.datasource.password"));
 		return DruidDataSourceFactory.createDataSource(props);
 	}
 	@Bean
-	public DataSource routeDataSource() throws Exception {
+	public DataSource destinationDataSource() throws Exception {
 		Properties props = new Properties();
-		props.put("driverClassName", env.getProperty("route.datasource.driver-class-name"));
-		props.put("url", env.getProperty("route.datasource.url"));
-		props.put("username", env.getProperty("route.datasource.username"));
-		props.put("password", env.getProperty("route.datasource.password"));
+		props.put("driverClassName", env.getProperty("destination.datasource.driver-class-name"));
+		props.put("url", env.getProperty("destination.datasource.url"));
+		props.put("username", env.getProperty("destination.datasource.username"));
+		props.put("password", env.getProperty("destination.datasource.password"));
 		return DruidDataSourceFactory.createDataSource(props);
 	}
 
@@ -62,11 +62,11 @@ public class MyBatisConfig {
 	@Bean
 	@Primary
 	public DynamicDataSource dataSource(
-			@Qualifier("routeDataSource") DataSource routeDataSource,
-			@Qualifier("operateDataSource") DataSource operateDataSource) {
+			@Qualifier("sourceDataSource") DataSource sourceDataSource,
+			@Qualifier("destinationDataSource") DataSource destinationDataSource) {
 		Map<Object, Object> targetDataSources = new HashMap<Object, Object>();
-		targetDataSources.put(DatabaseType.routeDS, routeDataSource);
-		targetDataSources.put(DatabaseType.operateDS, operateDataSource);
+		targetDataSources.put(DatabaseType.sourceDS, sourceDataSource);
+		targetDataSources.put(DatabaseType.destinationTDS, destinationDataSource);
 
 		DynamicDataSource dataSource = new DynamicDataSource();
 		dataSource.setTargetDataSources(targetDataSources);// 该方法是AbstractRoutingDataSource的方法
@@ -85,7 +85,7 @@ public class MyBatisConfig {
 		fb.setTypeAliasesPackage(env.getProperty("mybatis.typeAliasesPackage"));// 指定entity基包
 		fb.setMapperLocations(new PathMatchingResourcePatternResolver()
 				.getResources(env.getProperty("mybatis.mapperLocations")));//指定mapperxml包
-		fb.setPlugins(new Interceptor[]{inteceptor});
+		fb.setPlugins(new Interceptor[]{interceptor});
 		return fb.getObject();
 	}
 
